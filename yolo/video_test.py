@@ -52,12 +52,13 @@ while(True):
                 class_ids.append(class_id)
 
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-    print(indexes)
     font = cv2.FONT_HERSHEY_PLAIN
     for i in range(len(boxes)):
         if i in indexes:
             x, y, w, h = boxes[i]
             label = str(classes[class_ids[i]])
+            print(label)
+
             color = colors[i]
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
             cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
