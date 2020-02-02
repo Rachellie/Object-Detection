@@ -11,7 +11,7 @@ def currentNumPeople():
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
-    v = 0
+    v = 0 # video source
     
     time.sleep(1)
     vs = cv2.VideoCapture(v)
