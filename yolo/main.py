@@ -1,6 +1,10 @@
 import cv2
-from detect_people import count_people
+from funs import *
+from picam import *
+import time
 
-imgg = cv2.imread("test6.jpg")
+pi_capture() #saves capture in snap.jpg
+
+imgg = cv2.imread("snap.jpg")
 
 print(count_people(imgg, 0.4))
