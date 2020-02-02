@@ -11,7 +11,11 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
+<<<<<<< HEAD
+vs = cv2.VideoCapture(1)
+=======
 vs = cv2.VideoCapture(0)
+>>>>>>> afee763ea5722e3731429272d3b137f3cc7400fb
 
 while(True):
     # get image
@@ -66,7 +70,11 @@ while(True):
                 cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
                 cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
 
+<<<<<<< HEAD
+    cv2.putText(img, 'people: ' + str(numpeople), (10, 50), font, 3, colors[1], 3)
+=======
     cv2.putText(img, 'people: ' + str(numpeople), (10, 50), font, 3, color, 3)
+>>>>>>> afee763ea5722e3731429272d3b137f3cc7400fb
     cv2.imshow("Image", img)
 
 

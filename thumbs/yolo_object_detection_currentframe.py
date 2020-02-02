@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import time
 
 def currentNumPeople():
     net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
@@ -10,8 +11,15 @@ def currentNumPeople():
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
-
+    time.sleep(1)
     vs = cv2.VideoCapture(1)
+    ret, img = vs.read()
+
+<<<<<<< HEAD
+    time.sleep(0.2)
+=======
+    vs = cv2.VideoCapture(1)
+>>>>>>> afee763ea5722e3731429272d3b137f3cc7400fb
     ret, img = vs.read()
 
     height, width, channels = img.shape
@@ -55,9 +63,14 @@ def currentNumPeople():
         if i in indexes:
             x, y, w, h = boxes[i]
             label = str(classes[class_ids[i]])
+            color = colors[i]
+            cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
+            cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
 
             if label == 'person':
                 numpeople += 1
-    vs.release()
+    
+    cv2.imwrite("twiddle.jpeg", img)
 
+    vs.release()
     return numpeople
