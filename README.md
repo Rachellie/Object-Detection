@@ -1,3 +1,7 @@
 # heckuci
 better stuff cmd line
 >python3 real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt.txt --model MobileNetSSD_deploy.caffemodel
+
+to run slackbot
+>run app.py
+>run ngrok http 3000
