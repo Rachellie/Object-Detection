@@ -21,7 +21,7 @@ def countPeople(img):
         classes = [line.strip() for line in f.readlines()]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-    #colors = np.random.uniform(0, 255, size=(len(classes), 3))
+    colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
 
@@ -59,7 +59,7 @@ def countPeople(img):
                 class_ids.append(class_id)
 
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-    print(indexes)
+    #print(indexes)
     font = cv2.FONT_HERSHEY_PLAIN
 
     numpeople = 0
@@ -82,6 +82,6 @@ def countPeople(img):
     """cv2.imshow("Image", img)
     cv2.waitKey(0)"""
     #cv2.destroyAllWindows()
-    cv2.imwrite("imageurl_edit", img)
+    cv2.imwrite("imageurl_edit.jpeg", img)
 
     return numpeople
