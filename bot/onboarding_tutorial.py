@@ -55,10 +55,7 @@ class OnboardingTutorial:
             "There are x people in this room\n"
             "Recognized People: \n"
         )
-        information = (
-            
-        )
-        return self._get_task_block(text, information)
+        return self._get_task_block2(text)
 
     def _get_reaction_block(self):
         task_checkmark = self._get_checkmark(self.reaction_task_completed)
@@ -97,4 +94,10 @@ class OnboardingTutorial:
         return [
             {"type": "section", "text": {"type": "mrkdwn", "text": text}},
             {"type": "context", "elements": [{"type": "mrkdwn", "text": information}]},
+        ]
+
+    @staticmethod
+    def _get_task_block2(text):
+        return [
+            {"type": "section", "text": {"type": "mrkdwn", "text": text}},
         ]
