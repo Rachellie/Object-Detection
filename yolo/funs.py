@@ -10,6 +10,13 @@ def smart_count(img_name,conf=0.5, sample=False):
     img = cv2.imread(img_name)
     return count_people(img, conf,sample)
 
+def smart_count1(conf=0.5, sample=False):
+    cap = cv2.VideoCapture(0)
+    ret, img = cap.read()
+    img.
+    
+    return count_people(img, conf,sample)
+
 def count_people(image, conf_thresh=0.5 ,showSample=False):
     net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
     classes = []
