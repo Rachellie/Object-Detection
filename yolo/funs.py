@@ -13,7 +13,6 @@ def smart_count(img_name,conf=0.5, sample=False):
 def smart_count1(conf=0.5, sample=False):
     cap = cv2.VideoCapture(0)
     ret, img = cap.read()
-    img.
     
     return count_people(img, conf,sample)
 
