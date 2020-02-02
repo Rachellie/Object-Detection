@@ -35,7 +35,7 @@ def sms_reply():
     if ('update' in msg):
         res.message(get_str())
     else:
-        res.message('unkown command')
+        res.message('unknown command')
     return str(res)
     
 if __name__ == "__main__":
