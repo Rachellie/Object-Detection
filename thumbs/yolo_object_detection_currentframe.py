@@ -11,15 +11,14 @@ def currentNumPeople():
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
+    v = 0
+    
     time.sleep(1)
-    vs = cv2.VideoCapture(1)
+    vs = cv2.VideoCapture(v)
     ret, img = vs.read()
 
-<<<<<<< HEAD
     time.sleep(0.2)
-=======
-    vs = cv2.VideoCapture(1)
->>>>>>> afee763ea5722e3731429272d3b137f3cc7400fb
+    vs = cv2.VideoCapture(v)
     ret, img = vs.read()
 
     height, width, channels = img.shape
