@@ -4,7 +4,7 @@
 from twilio.twiml.messaging_response import MessagingResponse
 from flask import Flask, request, redirect
 from twilio.rest import Client
-from yolo_object_detection import countPeople
+from yolo_object_detection_edit import countPeople
 import cv2
 
 import wget

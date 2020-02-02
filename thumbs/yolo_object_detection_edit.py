@@ -72,15 +72,16 @@ def countPeople(img):
             if label == 'person':
                 numpeople += 1
 
-            """color = colors[i]
-                cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
-                cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
+            color = colors[i]
+            cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
+            cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
 
     cv2.putText(img, 'people: ' + str(numpeople), (10, 50), font, 3, color, 3)
             
             
-                cv2.imshow("Image", img)
-                cv2.waitKey(0)"""
+    """cv2.imshow("Image", img)
+    cv2.waitKey(0)"""
     #cv2.destroyAllWindows()
+    cv2.imwrite("imageurl_edit", img)
 
     return numpeople
