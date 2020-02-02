@@ -1,17 +1,20 @@
 import cv2
 import numpy as np
 
-def currentNumPeople():
-    net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
-    classes = []
-    with open("coco.names", "r") as f:
-        classes = [line.strip() for line in f.readlines()]
-    layer_names = net.getLayerNames()
-    output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-    colors = np.random.uniform(0, 255, size=(len(classes), 3))
+# Load Yolo
+net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
+classes = []
+with open("coco.names", "r") as f:
+    classes = [line.strip() for line in f.readlines()]
+layer_names = net.getLayerNames()
+output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
-    vs = cv2.VideoCapture(1)
+vs = cv2.VideoCapture(0)
+
+while(True):
+    # get image
     ret, img = vs.read()
 
     height, width, channels = img.shape
@@ -58,6 +61,19 @@ def currentNumPeople():
 
             if label == 'person':
                 numpeople += 1
-    vs.release()
 
-    return numpeople
+                color = colors[i]
+                cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
+                cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
+
+    cv2.putText(img, 'people: ' + str(numpeople), (10, 50), font, 3, color, 3)
+    cv2.imshow("Image", img)
+
+
+    if cv2.waitKey(1000) & 0xFF == ord('q'):
+        break
+
+
+vs.release()
+cv2.destroyAllWindows()
+
