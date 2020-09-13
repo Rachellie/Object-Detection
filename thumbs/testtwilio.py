@@ -26,8 +26,9 @@ local_image_filename = wget.download(image_url)
 img = cv2.imread(local_image_filename)
 
 
-account_sid = 'ACf6de1d8ba49873dd53a9836ce60a36a0'
-auth_token = '593c2ec2877155d4a8262c0607a76a11'
+account_sid = '###'
+auth_token = '###'
+
 client = Client(account_sid, auth_token)
 
 string = 'Number of People in Picture: ' + str(countPeople(img))
